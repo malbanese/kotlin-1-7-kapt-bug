@@ -1,0 +1,41 @@
+buildscript {
+    apply from: '../versions.gradle'
+
+    repositories {
+        mavenCentral()
+        google()
+    }
+
+    dependencies {
+        classpath deps.kotlin_gradle
+        classpath deps.android_gradle
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'java'
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    implementation deps.kotlin_core
+    implementation deps.kotlin_gradle
+    implementation deps.android_gradle
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
